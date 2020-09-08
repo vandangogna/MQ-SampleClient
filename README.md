@@ -6,7 +6,7 @@
 1.  JDK 1.8+ or above.
 1.  Maven version 3.6.3 or above.
 1.  Integrated Development Environment such as VSCode, Eclipse, IntelliJ.
-1.  If mutual SSL is enabled, have the appropriated trust \ key store files as well as the password(s).
+1.  If mutual TLS is enabled, have the appropriated trust \ key store files as well as the password(s).
 
 
 ### General Instructions
@@ -15,7 +15,7 @@
     1.  Create a new Queue
     1.  Delete an existing Queue.
 
-1.  Update the `config.properties` files with all the required fields and their appropriate values.  The properties `CIPHER_SUITE and SSL*` are only required if mutual SSL is enabled.
+1.  Update the `config.properties` files with all the required fields and their appropriate values.  The properties `CIPHER_SUITE and SSL*` are only required if mutual TLS is enabled.
 
     ```
     HOSTNAME=host.example.com
@@ -32,11 +32,12 @@
     SAMPLE_QUEUE_NAME=ABC.TESTQ.1
     USE_MUTUAL_SSL=true
     ```
-1.  Set `USE_MUTUAL_SSL` to `false` if mutual SSL is not being used.
-1.  For mutual SSL connectivity:
+1.  Set `USE_MUTUAL_SSL` to `false` if mutual TLS is not being used.
+1.  For mutual TLS connectivity:
 
-        a.  make sure that the trust \ key store files are present under `src\resources` directory.
+        a.  Make sure that the trust \ key store files are present under `src\resources` directory.
         a.  The property `CIPHER_SUITE` must match as the one set on the server.  See https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_8.0.0/com.ibm.mq.dev.doc/q113220_.htm
+        a.  For configuring mutual TLS see: https://cloud.ibm.com/docs/mqcloud?topic=mqcloud-mqoc_jms_tls
 
 ### Run using Maven 
 1.  Run `mvn compile`
