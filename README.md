@@ -37,7 +37,7 @@
 
         a.  Make sure that the trust \ key store files are present under `src\resources` directory.
         a.  The property `CIPHER_SUITE` must match as the one set on the server.  See https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_8.0.0/com.ibm.mq.dev.doc/q113220_.htm
-        a.  For configuring mutual TLS see: https://cloud.ibm.com/docs/mqcloud?topic=mqcloud-mqoc_jms_tls
+1.  For configuring mutual TLS see: https://cloud.ibm.com/docs/mqcloud?topic=mqcloud-mqoc_jms_tls
 
 ### Run using Maven 
 1.  Run `mvn compile`
