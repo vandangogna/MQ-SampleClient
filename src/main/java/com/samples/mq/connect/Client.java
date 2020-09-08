@@ -16,10 +16,7 @@ import com.ibm.mq.headers.pcf.PCFException;
 import com.ibm.mq.headers.pcf.PCFMessage;
 import com.ibm.mq.headers.pcf.PCFMessageAgent;
 
-/**
- * @author vandan.gognaibm.com
- *
- */
+
 public class Client {
 	private static String BASE_RESOURCE_PATH = "src/resources";
 
@@ -35,15 +32,17 @@ public class Client {
 			 * REQD FOR mutual SSL communication if enabled on the server side If mutual SSL
 			 * is not required, comment out the next 4 lines below
 			 */
-			System.setProperty("javax.net.ssl.trustStore",
-					String.format("%s/%s", BASE_RESOURCE_PATH, configProps.getProperty("SSL_TRUST_STORE_FILE")));
-			System.setProperty("javax.net.ssl.trustStorePassword", configProps.getProperty("SSL_TRUST_STORE_PASSWORD"));
-			System.setProperty("javax.net.ssl.keyStore",
-					String.format("%s/%s", BASE_RESOURCE_PATH, configProps.getProperty("SSL_KEY_STORE_FILE")));
-			System.setProperty("javax.net.ssl.keyStorePassword", configProps.getProperty("SSL_KEY_STORE_PASSWORD"));
-
-			// REQUIRED for Oracle \ Open JDK
-			System.setProperty("com.ibm.mq.cfg.useIBMCipherMappings", "false");
+			if (Boolean.parseBoolean(configProps.getProperty("USE_MUTUAL_SSL"))) {
+				System.setProperty("javax.net.ssl.trustStore",
+						String.format("%s/%s", BASE_RESOURCE_PATH, configProps.getProperty("SSL_TRUST_STORE_FILE")));
+				System.setProperty("javax.net.ssl.trustStorePassword", configProps.getProperty("SSL_TRUST_STORE_PASSWORD"));
+				System.setProperty("javax.net.ssl.keyStore",
+						String.format("%s/%s", BASE_RESOURCE_PATH, configProps.getProperty("SSL_KEY_STORE_FILE")));
+				System.setProperty("javax.net.ssl.keyStorePassword", configProps.getProperty("SSL_KEY_STORE_PASSWORD"));
+	
+				// REQUIRED for Oracle \ Open JDK
+				System.setProperty("com.ibm.mq.cfg.useIBMCipherMappings", "false");
+			}
 
 			mqQueueManager = new MQQueueManager(configProps.getProperty("QUEUE_MANAGER_NAME"),
 					getConnectionProperties(configProps));
