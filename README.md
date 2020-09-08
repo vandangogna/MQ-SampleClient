@@ -35,7 +35,7 @@
 1.  Set `USE_MUTUAL_SSL` to `false` if mutual TLS is not being used.
 1.  For mutual TLS connectivity:
 
-        a.  Make sure that the trust \ key store files are present under `src\resources` directory.
+        a.  Make sure that the relevant account specific trust \ key store files are present under `src\resources` directory.
         a.  The property `CIPHER_SUITE` must match as the one set on the server.  See https://www.ibm.com/support/knowledgecenter/en/SSFKSJ_8.0.0/com.ibm.mq.dev.doc/q113220_.htm
 1.  For configuring mutual TLS see: https://cloud.ibm.com/docs/mqcloud?topic=mqcloud-mqoc_jms_tls
 
