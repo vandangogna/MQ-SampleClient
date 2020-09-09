@@ -10,7 +10,8 @@
 
 
 ### General Instructions
-1.  The sample code allows client to interact with the MQ Queue Manager to do the following operations:
+1.  The sample code allows the client application to interact with the MQ Queue Manager using the PCF api.
+1.  Currently the following operations are implemented:
     1.  List all Queues
     1.  Create a new Queue
     1.  Delete an existing Queue.
